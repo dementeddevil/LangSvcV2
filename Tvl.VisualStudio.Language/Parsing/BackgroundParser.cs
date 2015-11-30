@@ -70,7 +70,9 @@
         {
             get
             {
-                return _textBuffer.Target;
+                ITextBuffer textBuffer;
+                _textBuffer.TryGetTarget(out textBuffer);
+                return textBuffer;
             }
         }
 

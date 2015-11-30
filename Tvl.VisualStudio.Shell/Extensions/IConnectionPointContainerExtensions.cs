@@ -60,8 +60,8 @@
             {
                 if (_cookie != 0)
                 {
-                    IConnectionPoint connectionPoint = _connectionPoint.Target;
-                    if (connectionPoint != null)
+                    IConnectionPoint connectionPoint;
+                    if (_connectionPoint.TryGetTarget(out connectionPoint) && connectionPoint != null)
                     {
                         connectionPoint.Unadvise(_cookie);
                         _cookie = 0;
